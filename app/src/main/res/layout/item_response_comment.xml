@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="Comment"
+            type="com.example.mibitelver2.modeltien.comment.Datum" />
+
+        <variable
+            name="isLike"
+            type="Integer" />
+
+        <variable
+            name="clickReport"
+            type="com.example.mibitelver2.util.CustomClickReport" />
+        <variable
+            name="clickLike"
+            type="com.example.mibitelver2.util.CustomClickLike" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+
+            app:cardCornerRadius="300dp">
+
+            <ImageView
+                android:id="@+id/commentimage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:loadImage="@{Comment.userResponseDto.photo}" />
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="3dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/commentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Comment.userResponseDto.nickName}"
+                    android:textColor="#667b90"
+                    android:textSize="11sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/commentContent"
+                    android:layout_width="198dp"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5sp"
+                    android:text="@{Comment.content}"
+                    android:textColor="#000000"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/commentTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="21dp"
+                        android:lineSpacingExtra="7sp"
+                        android:text="@{Comment.TextTime()}"
+                        android:textColor="#667b90"
+                        android:textSize="11sp"
+                        android:textStyle="normal" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:lineSpacingExtra="7sp"
+                        android:onClick="@{()->clickReport.setClickReport()}"
+                        android:text="Denunciar"
+                        android:textColor="#667b90"
+                        android:textSize="11sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    clickLikeComment="@{isLike}"
+                    android:onClick="@{()->clickLike.setClickLike()}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/shape" />
+
+                <TextView
+                    android:id="@+id/commentLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@{Comment.convertLike()}" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</layout>

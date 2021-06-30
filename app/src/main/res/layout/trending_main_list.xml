@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="200dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    card_view:cardCornerRadius="15dp"
+    android:elevation="0dp"
+    card_view:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/trendingNameTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/sample"
+            android:textColor="#2b3a4a"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.049"
+            card_view:layout_constraintVertical_bias="0.006" />
+
+        <!--        trending_main_list_item-->
+
+        <TextView
+            android:id="@+id/trendingType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="224dp"
+            android:layout_marginEnd="288dp"
+            android:layout_marginBottom="360dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/sample"
+            android:textColor="#8697a8"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trending_main_list_RV"
+            android:layout_width="match_parent"
+            android:layout_height="148dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintVertical_bias="1.0"
+            tools:listitem="@layout/trending_main_list_item"/>
+
+        <TextView
+            android:id="@+id/trending_main_list_noViews"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="#11cccc"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            card_view:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.883"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.099" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

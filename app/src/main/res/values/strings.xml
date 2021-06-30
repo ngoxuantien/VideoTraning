@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Mi Bitel ver2</string>
+
+    <string name="title_home">Inicio</string>
+    <string name="title_tend">Tendencias</string>
+    <string name="title_bibli">Biblioteca</string>
+    <string name="title_you">Yo</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_video_category">Videos</string>
+    <string name="recently_viewed">Vistos recientemente</string>
+    <string name="history">Historial de visualización</string>
+    <string name="liked_video">Me gustan</string>
+    <string name="saved_video">Guardado para ver más tarde</string>
+    <string name="sample">text_sample</string>
+
+    <string name="history_content_description">history</string>
+    <string name="liked_content_description">liked</string>
+    <string name="saved_content_description">saved</string>
+    <string name="arrow">arrow</string>
+    <string name="line">line</string>
+    <string name="top_main">main_top</string>
+    <string name="fab_category_button">fab_categoryBtn</string>
+    <string name="description">description</string>
+    <string name="press_back_again_to_exit">Press back again to exit</string>
+    <string name="image">image</string>
+    <string name="videoTitleSample">Tomorrowland #RelaxHouse #Music..</string>
+    <string name="channel_sample">Diego Guadalupe</string>
+    <string name="view_sample">50,345 vistas</string>
+    <string name="time_sample">hace 3 días</string>
+    <string name="videos">Videos</string>
+    <string name="action_settings">Settings</string>
+    <string name="comment_sample">Añadir comentario</string>
+    <string name="library">Library</string>
+    <string name="remove_from_list">Remove from list</string>
+    <string name="download_video">Download video</string>
+    <string name="share">Share</string>
+</resources>

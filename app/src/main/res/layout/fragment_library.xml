@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.library.LibraryFragment"
+    android:fitsSystemWindows="true">
+
+    <!--        Press to view liked videos-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_top_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="184dp"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/recently_viewed"
+            android:textColor="#2b3a4a"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--    rv chua Library_history_item-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_library_RV"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginBottom="272dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.071" />
+
+        <!--        Press to view history-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:contentDescription="@string/line"
+            android:layerType="software"
+            android:src="@drawable/dotted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_library_RV" />
+
+        <!--        Press to view liked videos-->
+
+        <com.google.android.material.card.MaterialCardView
+            android:clickable="true"
+            app:checkedIconTint="@color/app_gradient_color"
+            android:id="@+id/library_watched_cv"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:elevation="0dp"
+            app:cardBackgroundColor="#f8fbfb"
+
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.531"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/library_1"
+                android:contentDescription="@string/history_content_description" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/history"
+                android:textColor="#415263"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="314dp"
+                android:layout_marginTop="25dp"
+                android:contentDescription="@string/arrow"
+                android:src="@drawable/forward" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!--        Press to view saved videos-->
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/library_liked_cv"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:clickable="true"
+            android:elevation="0dp"
+            app:cardBackgroundColor="#f8fbfb"
+            app:cardElevation="0dp"
+            app:checkedIconTint="@color/app_gradient_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.656"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/library_2"
+                android:contentDescription="@string/liked_content_description" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/liked_video"
+                android:textColor="#415263"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="314dp"
+                android:layout_marginTop="25dp"
+                android:contentDescription="@string/arrow"
+                android:src="@drawable/forward" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/library_saved_cv"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:clickable="true"
+            android:elevation="0dp"
+            app:cardBackgroundColor="#f8fbfb"
+            app:cardElevation="0dp"
+            app:checkedIconTint="@color/app_gradient_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.78"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/library_3"
+                android:contentDescription="@string/saved_content_description" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/saved_video"
+                android:textColor="#415263"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+            <!--            textView no Videos-->
+            <TextView
+                android:id="@+id/fragment_library_savedVideoTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="35dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#fb624a"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                tools:text="@string/sample" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="314dp"
+                android:layout_marginTop="25dp"
+                android:contentDescription="@string/arrow"
+                android:src="@drawable/forward" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

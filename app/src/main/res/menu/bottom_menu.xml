@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/title_home" />
+    <item android:id="@+id/navigation_tend"
+        android:icon="@drawable/trending"
+        android:title="@string/title_tend"/>
+    <item android:id="@+id/navigation_bibli"
+        android:icon="@drawable/library"
+        android:title="@string/title_bibli"/>
+    <item android:id="@+id/navigation_you"
+        android:icon="@drawable/user"
+        android:title="@string/title_you"/>
+</menu>

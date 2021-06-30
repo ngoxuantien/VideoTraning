@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/_1sdp"
+    android:layout_marginEnd="@dimen/_1sdp"
+    android:layout_marginBottom="@dimen/_27sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/black"
+            android:layout_height="@dimen/_184sdp"/>
+        <ImageView
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            android:id="@+id/home_item_thumbnail"
+            android:layout_width="wrap_content"
+            android:src="@drawable/conver_image"
+            android:scaleType="centerCrop"
+            android:layout_height="@dimen/_184sdp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_avata"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            app:cardCornerRadius="@dimen/_17sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_avata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/avata_user"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:layout_marginStart="@dimen/_7sdp"
+            app:layout_constraintTop_toTopOf="@id/card_avata"
+            app:layout_constraintStart_toEndOf="@id/card_avata"
+            android:text="Los goles de Paolo Guerrero"
+            />
+
+        <TextView
+            android:id="@+id/hashtag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#000000"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/title_text"
+            app:layout_constraintStart_toStartOf="@id/title_text"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="#Gol #ArribaPerú #Clasificación"
+            />
+        <TextView
+            android:id="@+id/item_video_name_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#8697a8"
+            app:layout_constraintTop_toBottomOf="@id/hashtag"
+            app:layout_constraintStart_toStartOf="@id/hashtag"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            android:text="Diego Guadalupe"/>
+
+        <TextView
+            android:id="@+id/item_video_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="@id/item_video_name_user"
+            app:layout_constraintBottom_toBottomOf="@id/item_video_name_user"
+            app:layout_constraintStart_toEndOf="@id/item_video_name_user"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="#8697a8"
+            android:text="50,345 views"
+            />
+        <TextView
+            android:id="@+id/item_video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="@id/item_video_view"
+            app:layout_constraintBottom_toBottomOf="@id/item_video_view"
+            app:layout_constraintStart_toEndOf="@id/item_video_view"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="#8697a8"
+            android:text="3 ngày trước"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

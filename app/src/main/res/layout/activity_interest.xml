@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+tools:context=".view.InterestActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_125sdp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/img_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_back"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        app:cardCornerRadius="@dimen/_15sdp">
+        <TextView
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:drawableRight="@drawable/ic_back"/>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textSize="17sp"
+        android:textColor="#007689"
+        android:gravity="center_horizontal"
+        android:text="Videos"
+        app:layout_constraintTop_toTopOf="@id/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/card_back"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_skip"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_32sdp"
+        app:cardCornerRadius="@dimen/_16sdp">
+
+        <TextView
+            android:id="@+id/btnSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:textColor="#00a5b1"
+            android:textSize="@dimen/_13ssp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:drawableRight="@drawable/ic_arrow_forward"
+            android:drawablePadding="5dp"/>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="-70dp"
+    android:background="@drawable/background_rounded_corners">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/interest_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:lineSpacingExtra="-1sp"
+        android:lines="1"
+        android:textStyle="normal"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:textColor="#000000"
+        android:text="Danh mục bạn quan tâm?"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:orientation="vertical"
+        android:id="@+id/interest_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/interest_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/interest_title"
+        app:spanCount="3"
+        tools:listitem="@layout/interest_item" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/interest_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:textColor="#FFFFFF"
+        android:text="Continue"
+        android:padding="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_button_interest"
+        android:layout_marginBottom="@dimen/_10sdp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

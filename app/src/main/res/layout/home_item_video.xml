@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginEnd="15sp"
+    android:layout_marginBottom="@dimen/_27sdp">
+
+    <!-- Không sử dụng nữa do chỉ tồn tại 2 list phần tử trượt ngang-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_148sdp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        android:background="#FFFFFF"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/home_item_video_thumbnail"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/conver_image"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_play"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_avata"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            app:cardCornerRadius="@dimen/_17sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/home_item_video_image_avata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/avata_user"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/home_item_video_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Los goles de Paolo Guerrero"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/card_avata"
+            app:layout_constraintTop_toTopOf="@id/card_avata" />
+        <TextView
+            android:id="@+id/home_item_video_hashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@id/home_item_video_title_text"
+            app:layout_constraintStart_toStartOf="@id/home_item_video_title_text"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="#Gol #ArribaPerú #Clasificación"
+            />
+        <TextView
+            android:id="@+id/home_item_video_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#8697a8"
+            app:layout_constraintTop_toBottomOf="@id/home_item_video_hashtag"
+            app:layout_constraintStart_toStartOf="@id/home_item_video_hashtag"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            android:text="Diego Guadalupe"/>
+
+        <TextView
+            android:id="@+id/home_item_video_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="@id/home_item_video_name"
+            app:layout_constraintBottom_toBottomOf="@id/home_item_video_name"
+            app:layout_constraintStart_toEndOf="@id/home_item_video_name"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="#8697a8"
+            android:text="50,345 views"
+            />
+        <TextView
+            android:id="@+id/home_item_video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="@id/home_item_video_view"
+            app:layout_constraintBottom_toBottomOf="@id/home_item_video_view"
+            app:layout_constraintStart_toEndOf="@id/home_item_video_view"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="#8697a8"
+            android:text="3 ngày trước"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
