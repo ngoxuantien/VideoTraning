@@ -2,6 +2,9 @@
 <layout>
 
     <data>
+        <variable
+            name="NumberLike"
+            type="String" />
 
         <variable
             name="Comment"
@@ -126,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
-                    android:text="@{Comment.convertLike()}" />
+                    android:text="@{NumberLike}" />
             </LinearLayout>
         </RelativeLayout>
 

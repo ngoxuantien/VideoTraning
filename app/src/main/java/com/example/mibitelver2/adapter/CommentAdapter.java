@@ -66,6 +66,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                 h[0] = true;
             }
         });
+        holder.itemCommentBinding.setNumberLike(commentList.get(position).getLike()+"");
         commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
         // phải fix id user
         commentViewModel.getComment(commentList.get(position).getIdComment() + "", "3");
@@ -106,10 +107,14 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                         commentList.get(position).setIsLike(0);
                         commentViewModel.putLikeComment(new LikeComment(commentList.get(position).getIdComment(),3,false));
                         holder.itemCommentBinding.setIsLike(0);
+                        holder.itemCommentBinding.setNumberLike(commentList.get(position).getLike()-1+"");
+                        commentList.get(position).setLike(commentList.get(position).getLike()-1);
                     }else {
                         commentList.get(position).setIsLike(1);
                         commentViewModel.putLikeComment(new LikeComment(commentList.get(position).getIdComment(),3,true));
                         holder.itemCommentBinding.setIsLike(1);
+                        holder.itemCommentBinding.setNumberLike(commentList.get(position).getLike()+1+"");
+                        commentList.get(position).setLike(commentList.get(position).getLike()+1);
                     }
 
                 }

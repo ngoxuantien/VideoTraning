@@ -36,6 +36,9 @@ import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+import com.google.android.exoplayer2.extractor.ExtractorsFactory;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
@@ -48,6 +51,7 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,6 +70,7 @@ public class VideoActivity extends AppCompatActivity {
     private int g = 0, h = 0;
     private int g1 = 0, h1 = 0;
     private int g2 = 0, h2 = 0;
+
     private Handler handler;
     VideoUserViewModel videoUserViewModel;
     private String linkvideo;
@@ -99,6 +104,7 @@ public class VideoActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         LoadControl loadControl = new DefaultLoadControl();
+
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
         simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(VideoActivity.this, trackSelector, loadControl);
@@ -109,6 +115,7 @@ public class VideoActivity extends AppCompatActivity {
             @Override
             public void run() {
                 changes();
+
                 Uri videoUrl = Uri.parse(linkvideo);
                 //Convert time watched to milliseconds
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
@@ -130,7 +137,16 @@ public class VideoActivity extends AppCompatActivity {
                 Log.e("Time watched",
                         String.format(Locale.getDefault(), "%d", tw));
 
-                MediaSource mediaSource = buildMediaSource(videoUrl);
+                // them vào để chạy file mp4
+                DefaultHttpDataSourceFactory factory = new DefaultHttpDataSourceFactory("exoplayer_video");
+
+
+                ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+                MediaSource mediaSource = new ExtractorMediaSource(videoUrl, factory, extractorsFactory, null, null);
+               /////
+                // thay thế bằng
+            //    MediaSource mediaSource = buildMediaSource("linkvideo");
+
                 playerView.setPlayer(simpleExoPlayer);
                 playerView.setKeepScreenOn(true);
                 simpleExoPlayer.prepare(mediaSource);
@@ -239,11 +255,21 @@ public class VideoActivity extends AppCompatActivity {
     //setData
 
     private void changes() {
+        videoUserViewModel.videoInfor.observe(this, new Observer<VideoInfo>() {
+            @Override
+            public void onChanged(VideoInfo videoInfo) {
+
+                timeWatch=videoInfo.getData().getTimeWatch();
+
+            }
+        });
 
         videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
             @Override
             public void onChanged(VideoAcount videoAcount) {
                 setVideo(videoAcount.getData());
+                setNumberLike(videoAcount.getData().getTotalLike());
+
                 if (videoAcount.getData().getLike()) {
                     setIsLike(1);
                 } else setIsLike(0);
@@ -270,12 +296,7 @@ public class VideoActivity extends AppCompatActivity {
                 }
             }
         });
-        videoUserViewModel.videoInfor.observe(this, new Observer<VideoInfo>() {
-            @Override
-            public void onChanged(VideoInfo videoInfo) {
-                timeWatch = videoInfo.getData().getTimeWatch();
-            }
-        });
+
         videoUserViewModel.hashTag.observe(this, hashTag -> setHashTagRecyclerview(hashTag.getData()));
     }
 
@@ -302,6 +323,9 @@ public class VideoActivity extends AppCompatActivity {
 
     public void setHashTagRecyclerview(List<Datum> hashtag) {
         activityVideoBinding.setAdapter(new HashTagAdapter(this, hashtag));
+    }
+    public void setNumberLike(int k){
+        activityVideoBinding.setNumberLike(k+"");
     }
 
 
@@ -331,13 +355,19 @@ public class VideoActivity extends AppCompatActivity {
                     } else h = 0;
 
                 }
+
                 if (h == 1) {
+
                     videoUserViewModel.putLike(new Likeput(0, videoAcount.getData().getIdVideo(), 3));
                     setIsLike(0);
+                    setNumberLike(videoAcount.getData().getTotalLike()-1);
+                    videoAcount.getData().setTotalLike(videoAcount.getData().getTotalLike()-1);
                     h = 0;
                 } else {
                     videoUserViewModel.putLike(new Likeput(1, videoAcount.getData().getIdVideo(), 3));
                     setIsLike(1);
+                    setNumberLike(videoAcount.getData().getTotalLike()+1);
+                    videoAcount.getData().setTotalLike(videoAcount.getData().getTotalLike()+1);
                     h = 1;
 
                 }

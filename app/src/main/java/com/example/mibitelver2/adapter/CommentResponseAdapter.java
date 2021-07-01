@@ -46,6 +46,7 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
         //   Glide.with(context).load(commentListResponse.get(position).getCommentImage()).into(holder.commentImage);
         holder.itemResponseCommentBinding.setComment(commentListResponse.get(position));
         commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
+        holder.itemResponseCommentBinding.setNumberLike(commentListResponse.get(position).getLike()+"");
         if (commentListResponse.get(position).getIsLike() == 1) {
             holder.itemResponseCommentBinding.setIsLike(1);
         } else {
@@ -59,10 +60,14 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
                         commentListResponse.get(position).setIsLike(0);
                         commentViewModel.putLikeComment(new LikeComment(commentListResponse.get(position).getIdComment(), 3, false));
                         holder.itemResponseCommentBinding.setIsLike(0);
+                        holder.itemResponseCommentBinding.setNumberLike(commentListResponse.get(position).getLike()-1+"");
+                        commentListResponse.get(position).setLike(commentListResponse.get(position).getLike()-1);
                     } else {
                         commentListResponse.get(position).setIsLike(1);
                         commentViewModel.putLikeComment(new LikeComment(commentListResponse.get(position).getIdComment(), 3, true));
                         holder.itemResponseCommentBinding.setIsLike(1);
+                        holder.itemResponseCommentBinding.setNumberLike(commentListResponse.get(position).getLike()+1+"");
+                        commentListResponse.get(position).setLike(commentListResponse.get(position).getLike()+1);
                     }
 
                 }

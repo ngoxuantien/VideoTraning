@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="numberLike"
+            type="String" />
 
         <variable
             name="isFollow"
@@ -176,7 +179,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
 
-                android:text="@{videoChannel.convertTotalLike()}"
+                android:text="@{numberLike}"
                 android:textColor="@color/white" />
         </LinearLayout>
 
